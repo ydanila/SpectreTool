@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SpectreTool.Views.Controls.CheckMark"
+             x:Name="this2"
+             xmlns:lib="clr-namespace:SvgXF.Lib;assembly=SvgXF.Lib">
+	<ContentView.Content>
+		<Grid>
+			<OnPlatform x:TypeArguments="View">
+				<OnPlatform.Default>
+					<lib:Icon
+						IsVisible="{Binding IsChecked, Source={x:Reference this2}}"
+						WidthRequest="20" HeightRequest="20" 
+						ResourceId="Views/Resources/checkbox_checked.svg" />
+				</OnPlatform.Default>
+				<On Platform="UWP">
+					<Label Text="&#xE73A;"
+					       FontFamily="Segoe MDL2 Assets"
+						   FontSize="20"
+					       IsVisible="{Binding IsChecked, Source={x:Reference this2}}"
+					       VerticalOptions="Center" 
+					       HorizontalOptions="Center" />
+				</On>
+			</OnPlatform>
+			<OnPlatform x:TypeArguments="View">
+				<OnPlatform.Default>
+					<lib:Icon
+						IsVisible="{Binding IsNotChecked, Source={x:Reference this2}}"
+						WidthRequest="20" HeightRequest="20" 
+						ResourceId="Views/Resources/checkbox_unchecked.svg" />
+				</OnPlatform.Default>
+				<On Platform="UWP">
+					<Label Text="&#xE739;"
+					       FontFamily="Segoe MDL2 Assets"
+					       FontSize="20"
+					       IsVisible="{Binding IsNotChecked, Source={x:Reference this2}}"
+					       VerticalOptions="Center" 
+					       HorizontalOptions="Center" />
+				</On>
+			</OnPlatform>
+		</Grid>
+	</ContentView.Content>
+</ContentView>

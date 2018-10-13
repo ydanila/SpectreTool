@@ -1,0 +1,100 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.0.1</Version>
+    <Authors>SpectreTool Author</Authors>
+    <Company>SpectreTool Company</Company>
+    <Product>SpectreTool Name</Product>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Resources\AppImage.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Resources\AppImage.svg" />
+    <EmbeddedResource Include="Views\Resources\checkbox_checked.svg" />
+    <EmbeddedResource Include="Views\Resources\checkbox_unchecked.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="SkiaSharp" Version="1.60.2" />
+    <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.2" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.583944" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\submodule\HtmlLabelPlugin\src\HtmlLabel\HtmlLabel.Forms.Plugin.csproj" />
+    <ProjectReference Include="..\..\submodule\SvgXF\src\SvgXF.Lib\SvgXF.Lib.csproj" />
+    <ProjectReference Include="..\CustomXF.Lib\CustomXF.Lib.csproj" />
+    <ProjectReference Include="..\SpectreTool.ServiceDTO\SpectreTool.ServiceDTO.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
+      <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="ViewModel\Localization\UI.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UI.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MainPageDetail.xaml.cs">
+      <DependentUpon>MainPageDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\OldMainPageDetail.xaml.cs">
+      <DependentUpon>OldMainPageDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MasterDetailRoot.xaml.cs">
+      <DependentUpon>MasterDetailRoot.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MasterDetailPageMenuItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DetailsPageDetail.xaml.cs">
+      <DependentUpon>DetailsPageDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CheckPageDetail.xaml.cs">
+      <DependentUpon>CheckPageDetail.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="ViewModel\Localization\UI.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UI.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ViewModel\Localization\UI.ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AboutPageDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Controls\CheckMark.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\OldMainPageDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MasterDetailRoot.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MasterDetailPageDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MasterDetailPageMaster.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CheckPageDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

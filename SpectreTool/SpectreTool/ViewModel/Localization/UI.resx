@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AdditionalInfo" xml:space="preserve">
+    <value>Дополнительная информация</value>
+  </data>
+  <data name="AdditionalLinksDetails" xml:space="preserve">
+    <value>&lt;b&gt;Youtube&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://www.youtube.com/watch?v=Xfb8ht4UwOw"&gt;Ай, Как Просто! : Уязвимость в процессорах Intel, AMD и ARM. Разбираемся с Meltdown и Spectre!&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://www.youtube.com/watch?v=GgJwglipbqA"&gt;Дмитрий Бачило : Уязвимость в процессорах Intel (и AMD, и ARM). Meltdown и Spectre&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://www.youtube.com/watch?v=GgJwglipbqA"&gt;PRO Hi-Tech : Бреши Meltdown и Spectre в процессорах Intel и AMD - тест в играх после патча&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Хабрахабр&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://habrahabr.ru/post/346026/"&gt;CPU сдаст вас с потрохами: самая серьезная дыра в безопасности за всю историю наблюдений?&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://habrahabr.ru/post/346078/"&gt;Как именно работает Meltdown&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;3DNews.ru&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://3dnews.ru/965673"&gt;FAQ по Meltdown и Spectre для чайников: обновитесь и молитесь!&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Майкрософт&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://support.microsoft.com/ru-ru/help/4073119/protect-against-speculative-execution-side-channel-vulnerabilities-in"&gt;Руководства для клиентов Windows для ИТ-специалистов для защиты от уязвимостей стороны канала Упреждающее исполнение команд&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://support.microsoft.com/ru-ru/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution"&gt;Руководство по Windows Server для защиты от уязвимостей стороны канала Упреждающее исполнение команд&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://support.microsoft.com/ru-ru/help/4073225/guidance-protect-sql-server-against-spectre-meltdown"&gt;Защита от атак на Spectre и Meltdown стороны канала уязвимости SQL Server&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002"&gt;ADV180002 | Guidance to mitigate speculative execution side-channel vulnerabilities&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://support.microsoft.com/ru-ru/help/4078130/update-to-disable-mitigation-against-spectre-variant-2"&gt;Чтобы отключить средство защиты от Spectre, 2 варианта обновления&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://support.microsoft.com/ru-ru/help/4073707/windows-operating-system-security-update-for-amd-based-devices"&gt;Обновление для системы безопасности операционной системы Windows для устройств на базе процессора AMD&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://support.microsoft.com/ru-ru/help/4073229/windows-protect-device-against-chip-related-security-vulnerability"&gt;Защита устройства от угроз безопасности, связанных с уязвимостями микросхем&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Intel.com&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://newsroom.intel.com/press-kits/security-exploits-intel-products/"&gt;Security Exploits and Intel Products&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;meltdownattack.com&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://meltdownattack.com"&gt;Meltdown and Spectre&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href="https://meltdownattack.com/#faq-advisory"&gt;Where can I find official infos/security advisories of involved/affected companies?&lt;/a&gt;&lt;br&gt;</value>
+  </data>
+  <data name="BiosInformation" xml:space="preserve">
+    <value>БИОС</value>
+  </data>
+  <data name="BpbDisabledNoHardwareSupport" xml:space="preserve">
+    <value>BpbDisabledNoHardwareSupport</value>
+  </data>
+  <data name="BpbDisabledSystemPolicy" xml:space="preserve">
+    <value>BpbDisabledSystemPolicy</value>
+  </data>
+  <data name="BpbEnabled" xml:space="preserve">
+    <value>BpbEnabled</value>
+  </data>
+  <data name="BtiCheckResults" xml:space="preserve">
+    <value>Speculation control settings for CVE-2017-5715 [branch target injection]</value>
+  </data>
+  <data name="BtiDisabledByNoHardwareSupport" xml:space="preserve">
+    <value>Branch target injection mitigation is disabled by absence of hardware support:</value>
+  </data>
+  <data name="BtiDisabledBySystemPolicy" xml:space="preserve">
+    <value>Branch target injection mitigation is disabled by system policy:</value>
+  </data>
+  <data name="BtiHardwareSupport" xml:space="preserve">
+    <value>Аппаратная поддержка смягчения манипуляции ветвями ветвления</value>
+  </data>
+  <data name="BtiWindowsSupportEnabled" xml:space="preserve">
+    <value>Windows OS support for branch target injection mitigation is enabled</value>
+  </data>
+  <data name="BtiWindowsSupportPresent" xml:space="preserve">
+    <value>Support for branch target injection mitigation is present</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>Проверка</value>
+  </data>
+  <data name="CheckDetails" xml:space="preserve">
+    <value>Результаты проверки</value>
+  </data>
+  <data name="CpuInformation" xml:space="preserve">
+    <value>Процессор</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Детали</value>
+  </data>
+  <data name="HwMode1Present" xml:space="preserve">
+    <value>HwMode1Present</value>
+  </data>
+  <data name="HwMode2Present" xml:space="preserve">
+    <value>HwMode2Present</value>
+  </data>
+  <data name="HwReg1Enumerated" xml:space="preserve">
+    <value>HwReg1Enumerated</value>
+  </data>
+  <data name="HwReg2Enumerated" xml:space="preserve">
+    <value>HwReg2Enumerated</value>
+  </data>
+  <data name="KvaCheckResults" xml:space="preserve">
+    <value>Meltdown (CVE-2017-5754)</value>
+  </data>
+  <data name="KvaShadowEnabled" xml:space="preserve">
+    <value>Support for kernel VA shadow is enabled</value>
+  </data>
+  <data name="KvaShadowInvpcid" xml:space="preserve">
+    <value>KvaShadowInvpcid</value>
+  </data>
+  <data name="KvaShadowNotRequired" xml:space="preserve">
+    <value>Hardware not requires kernel VA shadowing</value>
+  </data>
+  <data name="KvaShadowPcid" xml:space="preserve">
+    <value>KvaShadowPcid</value>
+  </data>
+  <data name="KvaShadowPcidEnabled" xml:space="preserve">
+    <value>Support for PCID performance optimization is enabled [not required for security]</value>
+  </data>
+  <data name="KvaShadowPresent" xml:space="preserve">
+    <value>Support for kernel VA shadow is present</value>
+  </data>
+  <data name="KvaShadowUserGlobal" xml:space="preserve">
+    <value>KvaShadowUserGlobal</value>
+  </data>
+  <data name="MainPage" xml:space="preserve">
+    <value>Главная</value>
+  </data>
+  <data name="Manufacturer" xml:space="preserve">
+    <value>Производитель</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Модель</value>
+  </data>
+  <data name="MoreDetails" xml:space="preserve">
+    <value>Подробнее!</value>
+  </data>
+  <data name="MySafety" xml:space="preserve">
+    <value>Защищен ли я?</value>
+  </data>
+  <data name="MySafetyDetails" xml:space="preserve">
+    <value>    Уязвимости подвержены практически все современные процессоры &lt;a href="https://security-center.intel.com/advisory.aspx?intelid=intel-sa-00088&amp;amp;languageid=en-fr"&gt;Intel&lt;/a&gt;, &lt;a href="https://www.amd.com/ru/corporate/speculative-execution/"&gt;AMD&lt;/a&gt; и &lt;a href="https://developer.arm.com/support/security-update"&gt;ARM&lt;/a&gt;. Майкрософт уже &lt;a href="https://support.microsoft.com/ru-ru/help/4073757/protect-your-windows-devices-against-spectre-meltdown"&gt;выпустил описание проблемы и необходимые обновления&lt;/a&gt;, которые блокируют эти уязвимости.
+
+    Нажмите кнопку, что бы узнать защищен ли Ваш компьютер. </value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="OperatingSystem" xml:space="preserve">
+    <value>Операционная система</value>
+  </data>
+  <data name="ReleaseDate" xml:space="preserve">
+    <value>Дата выпуска</value>
+  </data>
+  <data name="Revision" xml:space="preserve">
+    <value>Ревизия</value>
+  </data>
+  <data name="SmepPresent" xml:space="preserve">
+    <value>SmepPresent</value>
+  </data>
+  <data name="SystemInformation" xml:space="preserve">
+    <value>Системная информация</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Проверить</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Версия</value>
+  </data>
+  <data name="VulnerabilitiesDetails" xml:space="preserve">
+    <value>    Уязвимости находили и будут находить, но все ранее найденные уязвимости были на программном уровне. Это значит, что достаточно было обновить программу и проблема решена. К тому же их использование требовало вызова специального кода, который умеют определять и блокировать антивирусы.
+
+    Со Spectre и Meldtown все совсем иначе. Здесь уязвимость обнаружена на уровне архитектуры процессора, а значит просто скачать обновление и решить проблему не получится. И хуже всего то, что для этого не нужны вирусы или уязвимости. Теоретически  получить доступ к этим данным может не только любая программа, но и любой сайт, который вы посетили в интернете. </value>
+  </data>
+  <data name="WhatHappened" xml:space="preserve">
+    <value>Что произошло?</value>
+  </data>
+  <data name="WhatHappenedDetails" xml:space="preserve">
+    <value>    В начале лета 2017 года &lt;a href="https://googleprojectzero.blogspot.ru"&gt;Проектом Зеро&lt;/a&gt; были &lt;a href="https://googleprojectzero.blogspot.ru/2018/01/reading-privileged-memory-with-side.html"&gt;обнаружены&lt;/a&gt; две уязвимости абсолютно нового типа. Они получили названия &lt;a href="https://ru.wikipedia.org/wiki/Spectre_(уязвимость)"&gt;Spectre&lt;/a&gt; (&lt;a href="http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5753"&gt;CVE-2017-5715&lt;/a&gt;, &lt;a href="http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5753"&gt;CVE-2017-5753&lt;/a&gt;) и &lt;a href="https://ru.wikipedia.org/wiki/Meltdown_(уязвимость)"&gt;Meltdown&lt;/a&gt; (&lt;a href="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754"&gt;CVE-2017-5754&lt;/a&gt;).</value>
+  </data>
+  <data name="WhatIsVulnerabilities" xml:space="preserve">
+    <value>What is Meldtown and Spectre ?</value>
+  </data>
+  <data name="WhatIsVulnerabilitiesDetails" xml:space="preserve">
+    <value>    Использование этих уязвимостей позволяет совершенно незаметно украсть, логины,емейлы, пароли, данные пластиковых карт и прочую важную информацию.</value>
+  </data>
+  <data name="WhatIsVulnerabilitiesDetailsNoAntivirus" xml:space="preserve">
+    <value>И антивирус от этого не спасет.</value>
+  </data>
+</root>

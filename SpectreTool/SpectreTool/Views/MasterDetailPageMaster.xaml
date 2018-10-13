@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SpectreTool.Views.MasterDetailPageMaster"
+             BindingContext="{Binding Master, Source={StaticResource Locator}}"
+             xmlns:local="clr-namespace:SpectreTool.Views.Attached"
+             xmlns:lib="clr-namespace:SvgXF.Lib;assembly=SvgXF.Lib"
+             Title="Master">
+	<StackLayout>
+		<ListView x:Name="MenuItemsListView"
+		          SeparatorVisibility="None"
+		          HasUnevenRows="True"
+		          ItemsSource="{Binding MenuItems}"
+		          SelectedItem="{Binding SelectedItem}"
+		          local:TappedGestureAttached.Command="{Binding ShowPage}">
+			<ListView.Header>
+				<lib:Icon
+					WidthRequest="300" HeightRequest="300"
+					ResourceId="Views/Resources/AppImage.svg" />
+			</ListView.Header>
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
+							<Label VerticalOptions="FillAndExpand"
+							       VerticalTextAlignment="Center"
+							       Text="{Binding Title}"
+							       FontSize="24" />
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</StackLayout>
+</ContentPage>

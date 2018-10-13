@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SpectreTool.Views.CheckPageDetail"
+             xmlns:extensions="clr-namespace:SpectreTool.Views.Extensions.MarkupExtension;assembly=SpectreTool"
+             xmlns:conv="clr-namespace:SpectreTool.Views.Extensions.Converters;assembly=SpectreTool"
+             xmlns:controls="clr-namespace:SpectreTool.Views.Controls;assembly=SpectreTool"
+             xmlns:attached="clr-namespace:SpectreTool.Views.Attached;assembly=SpectreTool"
+             BindingContext="{Binding Check, Source={StaticResource Locator}}">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<conv:AndBooleanConverter x:Key="AndBooleanConverter" />
+			<Style x:Key="TitleLeft" TargetType="Label" BaseResourceKey="Title">
+				<Setter Property="HorizontalOptions"
+				        Value="StartAndExpand" />
+				<Setter Property="VerticalOptions"
+				        Value="CenterAndExpand" />
+			</Style>
+			<Style x:Key="SubTitle" TargetType="Label" BaseResourceKey="MainText">
+				<Setter Property="HorizontalOptions"
+				        Value="StartAndExpand" />
+				<Setter Property="VerticalOptions"
+				        Value="CenterAndExpand" />
+			</Style>
+			<Style x:Key="MainTextDetails" TargetType="Label" BaseResourceKey="MainText">
+				<Setter Property="IsVisible"
+				        Value="{Binding Source={x:Reference showDetails}, Path=IsToggled}" />
+			</Style>
+			<Style x:Key="CheckMarkDetails" TargetType="controls:CheckMark">
+				<Setter Property="IsVisible"
+				        Value="{Binding Source={x:Reference showDetails}, Path=IsToggled}" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Refresh"
+					 Icon="Assets\e72c.png"
+		             Command="{Binding RefreshCommand}"/>
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<Grid>
+			<ActivityIndicator
+				IsVisible="{Binding IsBusy}"
+				IsRunning="{Binding IsBusy}"
+				WidthRequest="300"
+				HorizontalOptions="Center"
+				VerticalOptions="Center" />
+			<!-- <Error> -->
+   <!-- -->
+			<!-- </Error> -->
+			<ScrollView>
+				<ScrollView.IsVisible>
+					<extensions:MultiBinding Converter="{StaticResource AndBooleanConverter}">
+						<Binding Path="IsNotBusy" />
+						<Binding Path="Result.IsSuccess" />
+						<Binding Path="IsLoaded" />
+					</extensions:MultiBinding>
+				</ScrollView.IsVisible>
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+					<Label Grid.Row="0"
+					       Style="{StaticResource Title}"
+					       Text="{extensions:Translate CheckDetails}" />
+					<StackLayout Grid.Row="1" Orientation="Horizontal"
+					             Style="{StaticResource CenterTextColumn}">
+						<Label HorizontalOptions="StartAndExpand"
+						       Style="{StaticResource TitleLeft}"
+						       Text="Подробнее" />
+						<Switch VerticalOptions="End"
+						        x:Name="showDetails"
+						        HorizontalOptions="End"
+						        attached:SwitchTextEffect.OnText="{x:Null}"
+						        attached:SwitchTextEffect.OffText="{x:Null}"/>
+					</StackLayout>
+					<Grid Grid.Row="2"
+						Style="{StaticResource CenterTextColumn}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="25" />
+							<ColumnDefinition Width="28" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Grid.Row="0"
+							   Grid.ColumnSpan="3"
+							   Style="{StaticResource TitleLeft}"
+							   Text="{extensions:Translate BtiCheckResults}" />
+						<Label Grid.Row="1" Grid.Column="0"
+							   Style="{StaticResource MainText}"
+							   Text="{extensions:Translate BtiHardwareSupport}" />
+						<controls:CheckMark Grid.Row="1" Grid.Column="2"
+											Checked="{Binding Result.BtiHardwarePresent}" />
+						<Label Grid.Row="2" Grid.Column="0"
+							   Style="{StaticResource MainText}"
+							   Text="{extensions:Translate BtiWindowsSupportPresent}" />
+						<controls:CheckMark Grid.Row="2" Grid.Column="2"
+											Checked="{Binding Result.BtiWindowsSupportPresent}" />
+						<Label Grid.Row="3" Grid.Column="0"
+						       Style="{StaticResource MainText}"
+						       Text="{extensions:Translate BtiWindowsSupportEnabled}" />
+						<controls:CheckMark Grid.Row="3" Grid.Column="2"
+						                    Checked="{Binding Result.BtiWindowsSupportEnabled}" />
+						<Label Grid.Row="4" Grid.Column="0"
+						       Style="{StaticResource MainText}"
+							   IsVisible="{Binding Result.BtiNotEnabled}"
+						       Text="{extensions:Translate BtiDisabledBySystemPolicy}" />
+						<controls:CheckMark Grid.Row="4" Grid.Column="2"
+						                    IsVisible="{Binding Result.BtiNotEnabled}"
+						                    Checked="{Binding Result.BtiDisabledBySystemPolicy}" />
+						<Label Grid.Row="5" Grid.Column="0"
+						       Style="{StaticResource MainText}"
+						       IsVisible="{Binding Result.BtiNotEnabled}"
+						       Text="{extensions:Translate BtiDisabledByNoHardwareSupport}" />
+						<controls:CheckMark Grid.Row="5" Grid.Column="2"
+						                    IsVisible="{Binding Result.BtiNotEnabled}"
+						                    Checked="{Binding Result.BtiDisabledByNoHardwareSupport}" />
+						<Label Grid.Row="6" Grid.Column="0"
+						       Style="{StaticResource MainTextDetails}"
+						       Text="{extensions:Translate BpbEnabled}" />
+						<controls:CheckMark Grid.Row="6" Grid.Column="2"
+						                    Style="{StaticResource CheckMarkDetails}"
+						                    Checked="{Binding Result.BpbEnabled}" />
+						<Label Grid.Row="7" Grid.Column="0"
+						       Style="{StaticResource MainTextDetails}"
+						       Text="{extensions:Translate BpbDisabledSystemPolicy}" />
+						<controls:CheckMark Grid.Row="7" Grid.Column="2"
+						                    Style="{StaticResource CheckMarkDetails}"
+						                    Checked="{Binding Result.BpbDisabledSystemPolicy}" />
+						<Label Grid.Row="8" Grid.Column="0"
+						       Style="{StaticResource MainTextDetails}"
+						       Text="{extensions:Translate BpbDisabledNoHardwareSupport}" />
+						<controls:CheckMark Grid.Row="8" Grid.Column="2"
+						                    Style="{StaticResource CheckMarkDetails}"
+						                    Checked="{Binding Result.BpbDisabledNoHardwareSupport}" />
+						<Label Grid.Row="9" Grid.Column="0"
+						       Style="{StaticResource MainTextDetails}"
+						       Text="{extensions:Translate HwReg1Enumerated}" />
+						<controls:CheckMark Grid.Row="9" Grid.Column="2"
+						                    Style="{StaticResource CheckMarkDetails}"
+						                    Checked="{Binding Result.HwReg1Enumerated}" />
+						<Label Grid.Row="10" Grid.Column="0"
+						       Style="{StaticResource MainTextDetails}"
+						       Text="{extensions:Translate HwReg2Enumerated}" />
+						<controls:CheckMark Grid.Row="10" Grid.Column="2"
+						                    Style="{StaticResource CheckMarkDetails}"
+						                    Checked="{Binding Result.HwReg2Enumerated}" />
+						<Label Grid.Row="11" Grid.Column="0"
+						       Style="{StaticResource MainTextDetails}"
+						       Text="{extensions:Translate HwMode1Present}" />
+						<controls:CheckMark Grid.Row="11" Grid.Column="2"
+						                    Style="{StaticResource CheckMarkDetails}"
+						                    Checked="{Binding Result.HwMode1Present}" />
+						<Label Grid.Row="12" Grid.Column="0"
+						       Style="{StaticResource MainTextDetails}"
+						       Text="{extensions:Translate HwMode2Present}" />
+						<controls:CheckMark Grid.Row="12" Grid.Column="2"
+						                    Style="{StaticResource CheckMarkDetails}"
+						                    Checked="{Binding Result.HwMode2Present}" />
+						<Label Grid.Row="13" Grid.Column="0"
+						       Style="{StaticResource MainTextDetails}"
+						       Text="{extensions:Translate SmepPresent}" />
+						<controls:CheckMark Grid.Row="13" Grid.Column="2"
+						                    Style="{StaticResource CheckMarkDetails}"
+						                    Checked="{Binding Result.SmepPresent}" />
+					</Grid>
+					<Grid Grid.Row="3"
+					      Style="{StaticResource CenterTextColumn}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="25" />
+							<ColumnDefinition Width="28" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Grid.Row="0"
+						       Grid.ColumnSpan="3"
+						       Style="{StaticResource TitleLeft}"
+						       Text="{extensions:Translate KvaCheckResults}" />
+						<Label Grid.Row="1" Grid.Column="0"
+						       Style="{StaticResource MainText}"
+						       Text="{extensions:Translate KvaShadowNotRequired}" />
+						<controls:CheckMark Grid.Row="1" Grid.Column="2"
+						                    Checked="{Binding Result.KvaShadowNotRequired}" />
+						<Label Grid.Row="2" Grid.Column="0"
+						       Style="{StaticResource MainTextDetails}"
+						       Text="{extensions:Translate KvaShadowUserGlobal}" />
+						<controls:CheckMark Grid.Row="2" Grid.Column="2"
+						                    Style="{StaticResource CheckMarkDetails}"
+						                    Checked="{Binding Result.KvaShadowUserGlobal}" />
+						<Label Grid.Row="3" Grid.Column="0"
+						       Style="{StaticResource MainTextDetails}"
+						       Text="{extensions:Translate KvaShadowPcid}" />
+						<controls:CheckMark Grid.Row="3" Grid.Column="2"
+						                    Style="{StaticResource CheckMarkDetails}"
+						                    Checked="{Binding Result.KvaShadowPcid}" />
+						<Label Grid.Row="4" Grid.Column="0"
+						       Style="{StaticResource MainTextDetails}"
+						       Text="{extensions:Translate KvaShadowInvpcid}" />
+						<controls:CheckMark Grid.Row="4" Grid.Column="2"
+						                    Style="{StaticResource CheckMarkDetails}"
+						                    Checked="{Binding Result.KvaShadowInvpcid}" />
+						<Label Grid.Row="5" Grid.Column="0"
+						       Style="{StaticResource MainText}"
+							   IsVisible="{Binding Result.KvaShadowRequired}"
+						       Text="{extensions:Translate KvaShadowPresent}" />
+						<controls:CheckMark Grid.Row="5" Grid.Column="2"
+						                    IsVisible="{Binding Result.KvaShadowRequired}"
+						                    Checked="{Binding Result.KvaShadowPresent}" />
+						<Label Grid.Row="6" Grid.Column="0"
+						       Style="{StaticResource MainText}"
+						       IsVisible="{Binding Result.KvaShadowRequired}"
+						       Text="{extensions:Translate KvaShadowEnabled}" />
+						<controls:CheckMark Grid.Row="6" Grid.Column="2"
+						                    IsVisible="{Binding Result.KvaShadowRequired}"
+						                    Checked="{Binding Result.KvaShadowEnabled}" />
+						<Label Grid.Row="7" Grid.Column="0"
+						       Style="{StaticResource MainText}"
+						       Text="{extensions:Translate KvaShadowPcidEnabled}">
+							<Label.IsVisible>
+								<extensions:MultiBinding Converter="{StaticResource AndBooleanConverter}">
+									<Binding Path="Result.KvaShadowRequired" />
+									<Binding Path="Result.KvaShadowEnabled" />
+								</extensions:MultiBinding>
+							</Label.IsVisible>
+						</Label>
+						<controls:CheckMark Grid.Row="7" Grid.Column="2"
+						                    Checked="{Binding Result.KvaShadowPcidEnabled}" >
+							<controls:CheckMark.IsVisible>
+								<extensions:MultiBinding Converter="{StaticResource AndBooleanConverter}">
+									<Binding Path="Result.KvaShadowRequired" />
+									<Binding Path="Result.KvaShadowEnabled" />
+								</extensions:MultiBinding>
+							</controls:CheckMark.IsVisible>
+						</controls:CheckMark>
+					</Grid>
+					<Grid Grid.Row="4"
+					      Style="{StaticResource CenterTextColumn}"
+					      IsVisible="{Binding Source={x:Reference showDetails}, Path=IsToggled}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="25" />
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						 <Label  
+						        Grid.ColumnSpan="3" 
+						 	   Text="{extensions:Translate SystemInformation}" 
+						 	   Style="{StaticResource Title}"/> 
+						 <Label Grid.Row="1" 
+						 	   Grid.ColumnSpan="3" 
+						 	   Style="{StaticResource TitleLeft}" 
+						 	   Text="{extensions:Translate OperatingSystem}"/> 
+						 <Label Grid.Row="2" 
+						 	   Style="{StaticResource SubTitle}" 
+						 	   Text="{extensions:Translate Name}"/> 
+						 <Label Grid.Row="2" Grid.Column="2" 
+						 	   Style="{StaticResource MainText}" 
+						 	   Text="{Binding Result.OsName}"/> 
+						 <Label Grid.Row="3" 
+						 	   Style="{StaticResource SubTitle}" 
+						 	   Text="{extensions:Translate Version}"/> 
+						 <Label Grid.Row="3" Grid.Column="2" 
+						 	   Style="{StaticResource MainText}" 
+						 	   Text="{Binding Result.OsVersion}"/> 
+						 <Label Grid.Row="4" 
+						 	   Grid.ColumnSpan="3" 
+						 	   Style="{StaticResource TitleLeft}" 
+						 	   Text="{extensions:Translate CpuInformation}"/> 
+						 <Label Grid.Row="5" 
+						 	   Style="{StaticResource SubTitle}" 
+						 	   Text="{extensions:Translate Name}"/> 
+						 <Label Grid.Row="5" Grid.Column="2" 
+						 	   Style="{StaticResource MainText}" 
+						 	   Text="{Binding Result.CpuName}"/> 
+						 <Label Grid.Row="6" 
+						 	   Style="{StaticResource SubTitle}" 
+						 	   Text="{extensions:Translate Model}"/> 
+						 <Label Grid.Row="6" Grid.Column="2" 
+						 	   Style="{StaticResource MainText}" 
+						 	   Text="{Binding Result.CpuModel}"/> 
+						 <Label Grid.Row="7" 
+						 	   Style="{StaticResource SubTitle}" 
+						 	   Text="{extensions:Translate Revision}"/> 
+						 <Label Grid.Row="7" Grid.Column="2" 
+						 	   Style="{StaticResource MainText}" 
+						 	   Text="{Binding Result.CpuRevision}"/> 
+						 <Label Grid.Row="8" 
+						 	   Grid.ColumnSpan="3" 
+						 	   Text="{extensions:Translate BiosInformation}" 
+						 	   Style="{StaticResource TitleLeft}"/> 
+						 <Label Grid.Row="9" 
+						 	   Style="{StaticResource SubTitle}" 
+						 	   Text="{extensions:Translate Name}"/> 
+						 <Label Grid.Row="9" Grid.Column="2" 
+						 	   Style="{StaticResource MainText}" 
+						 	   Text="{Binding Result.BiosName}"/> 
+						 <Label Grid.Row="10" 
+						 	   Style="{StaticResource SubTitle}" 
+						 	   Text="{extensions:Translate Manufacturer}"/> 
+						 <Label Grid.Row="10" Grid.Column="2" 
+						 	   Style="{StaticResource MainText}" 
+						 	   Text="{Binding Result.BiosManufacturer}"/> 
+						 <Label Grid.Row="11" 
+						 	   Style="{StaticResource SubTitle}" 
+						 	   Text="{extensions:Translate ReleaseDate}"/> 
+						 <Label Grid.Row="11" Grid.Column="2" 
+						 	   Style="{StaticResource MainText}" 
+						 	   Text="{Binding Result.BiosReleaseDate}"/> 
+					</Grid>
+				</Grid>
+			</ScrollView>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

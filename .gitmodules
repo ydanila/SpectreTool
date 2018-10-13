@@ -1,0 +1,6 @@
+[submodule "submodule/HtmlLabelPlugin"]
+	path = submodule/HtmlLabelPlugin
+	url = https://github.com/ydanila/HtmlLabelPlugin.git
+[submodule "submodule/SvgXF"]
+	path = submodule/SvgXF
+	url = https://github.com/ydanila/SvgXF.git
